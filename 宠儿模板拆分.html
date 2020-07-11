@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>宠儿模板拆分</title>
 </head>
-
 <div id=loading>
 <h1>loading...</h1>
 <h2>模板比较多，可能需要加载一段时间，请耐心等待...</h2>
 </div>
+
+<body onload='
+dom("loading").style.display="none";'>
 <!-- 遮罩层 -->
 <div class="modal" id=a>
     <div class="container">
@@ -253,10 +255,11 @@ html+='<button onclick=dom("b").innerHTML="";dom("a").style.display="block";cfZ(
 if(i==mb.length)
 {
 document.write(html)
-dom("loading").style.display="none";
 }
 }
 
 </script>
 <br>
+如浏览器无法正常显示符号，可去群相册查找序号<br>
 by:QQ2655995367
+</body>
