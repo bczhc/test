@@ -1,0 +1,265 @@
+<head> 
+     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>宠儿模板拆分</title>
+</head>
+<div id=loading>
+<h1>loading...</h1>
+<h2>模板比较多，可能需要加载一段时间，请耐心等待...</h2>
+</div>
+
+<body onload='
+dom("loading").style.display="none";'>
+<!-- 遮罩层 -->
+<div class="modal" id=a>
+    <div class="container">
+       <div id=b></div>
+        <!-- 关闭 -->
+        <div class="close" onclick=dom("a").style.display="none";>
+            X
+        </div>
+    </div>
+</div>
+<style>
+button{margin:0 20px;}
+.modal{
+display:none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#b{
+height:100%;
+overflow-y:scroll; 
+ }
+.modal .container{
+    width: 50%;
+    height: 65%;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 1em;    
+}
+.modal .container .close{
+   width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    background-color: #008c8c;
+    text-align: center;
+    line-height: 30px;
+}
+</style>
+<script>
+function dom(x){
+return document.getElementById(x)
+}
+var Cstr;
+ var Cnr;
+ var id=0 
+function sc(n) {
+ if(n!=""&&Cstr!=""&&Cnr!="")
+ {id++
+dom("a").style.display="block";
+ dom("b").innerHTML+='<input type="text" value="'+n+'" id="c'+id+'">&nbsp;&nbsp;&nbsp;'+n+'<button onclick=\'var fz=dom("c'+id+'");fz.select();document.execCommand(\"Copy\");\'>复制</button><br/>' 
+}
+ } 
+function cfZ(f) { var dm2="v∷r E=\"Cnr=f⁬0ACstr=f.repl|ce～/⁬5B⁬5E⁬5Cu4E00-⁬5Cu9FA5⁬5D/g,⁬22⁬22½⁬0Aprint…Cstr½⁬0Av|r⁬20|rrDZ=⁬5B⁬5D//⁬E5⁬8D⁬95⁬E5⁬AD⁬97⁬E6⁬95⁬B0⁬E7⁬BB⁬84⁬0A//⁬E5⁬82⁬A8⁬E5⁬AD⁬98⁬E5⁬8D⁬95⁬E5⁬AD⁬97⁬E6⁬95⁬B0⁬E7⁬BB⁬84⁬0Av|r⁬20x=-1⁬0Afor…item⁬20in⁬20Cstr.split…⁬22⁬22½½⁬7B⁬20⁬0Ax++⁬0A|rrDZ⁬5Bx⁬5D=Cstr.split…⁬22⁬22½⁬5Bitem⁬5D⁬0Aprint…'x⁬EF⁬BC⁬9A'+x½⁬0Aprint…'⁬E5⁬8D⁬95⁬E5⁬AD⁬97⁬E6⁬95⁬B0⁬E7⁬BB⁬84|rrDZ⁬5Bx⁬5D⁬EF⁬BC⁬9A'+|rrDZ⁬5Bx⁬5D½⁬0Aif…x+1==Cstr.length½⁬0A⁬7Bprint…'⁬E5⁬8D⁬95⁬E5⁬AD⁬97⁬E6⁬95⁬B0⁬E7⁬BB⁬84|rrDZ⁬EF⁬BC⁬9A⁬5B'+|rrDZ+⁬22⁬5D⁬22½⁬7D⁬0A⁬7D⁬0A//⁬E6⁬9E⁬84⁬E5⁬BB⁬BA⁬E6⁬AD⁬BB⁬E7⁬8C⁬AA⁬E4⁬B8⁬8D⁬E6⁬80⁬95⁬E5⁬BC⁬80⁬E6⁬B0⁬B4⁬E7⁬83⁬AB⁬E7⁬AE⁬97⁬E6⁬B3⁬95⁬0Av|r⁬20k=-1⁬0Awhile…k⁬3C|rrDZ.length-1½⁬0A⁬7B⁬0Ak++⁬0ACnr=Cnr.repl|ce…ev|l…⁬22/⁬22+|rrDZ⁬5Bk⁬5D+⁬22/⁬22½,|rrDZ⁬5B0⁬5D½⁬0Aprint…'Cnr⁬EF⁬BC⁬9A'+Cnr½⁬0A⁬7D⁬0Av|r⁬20|rrWZ=⁬5B⁬5D//⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬E6⁬95⁬B0⁬E7⁬BB⁬84⁬0A//⁬E5⁬82⁬A8⁬E5⁬AD⁬98⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬E6⁬95⁬B0⁬E7⁬BB⁬84⁬0Aconst⁬20reg=ev|l…⁬22/⁬22+|rrDZ⁬5B0⁬5D+'/g'½⁬0Av|r⁬20i=0//⁬E5⁬BE⁬AA⁬E7⁬8E⁬AF⁬0Av|r⁬20y=-1//⁬E6⁬95⁬B0⁬E7⁬BB⁬84⁬0Awhile…i⁬3C|rrDZ.length½⁬0A⁬7Bi++⁬0Ay++⁬0Areg.test…Cnr½;⁬0Aprint…⁬22y⁬EF⁬BC⁬9A⁬22+y½⁬0Aprint…⁬22i⁬EF⁬BC⁬9A⁬22+i½⁬0Aif…reg.l|stIndex!=0½⁬0A⁬7B⁬0A|rrWZ⁬5By⁬5D=reg.l|stIndex;⁬0Aprint…⁬22⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬E6⁬95⁬B0⁬E7⁬BB⁬84|rrWZ⁬5By⁬5D⁬EF⁬BC⁬9A⁬22+|rrWZ⁬5By⁬5D½⁬0Aif…i==|rrDZ.length½⁬0A⁬7Bprint…'⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬E6⁬95⁬B0⁬E7⁬BB⁬84|rrWZ⁬EF⁬BC⁬9A⁬5B'+|rrWZ+⁬22⁬5D⁬22½⁬7D⁬0A⁬7D⁬0A⁬7D⁬0A//⁬E5⁬87⁬86⁬E5⁬A4⁬87⁬E9⁬83⁬A8⁬E5⁬88⁬86⁬E7⁬BB⁬93⁬E6⁬9D⁬9F⁬0Av|r⁬20u=-2//⁬E5⁬BE⁬AA⁬E7⁬8E⁬AF⁬E6⁬AC⁬A1⁬E6⁬95⁬B0…Cstr.length+2½⁬0Av|r⁬20s=-1//⁬E6⁬95⁬B0⁬E7⁬BB⁬84⁬0Awhile…u⁬3CCstr.length-1½⁬0A⁬7B⁬0Au++⁬0Aif…u==-1½⁬0A⁬7B⁬0A//⁬E5⁬BC⁬80⁬E5⁬A4⁬B4…0~⁬E7⁬AC⁬AC⁬E4⁬B8⁬80⁬E4⁬B8⁬AA⁬E5⁬AD⁬97⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE-1½⁬0Asc…Cnr.substring…0,|rrWZ⁬5B0⁬5D-1½½⁬0Aprint…⁬22⁬E5⁬BC⁬80⁬E5⁬A4⁬B4⁬22½⁬0Aprint…⁬22⁬E5⁬AD⁬97⁬E7⁬AC⁬A6⁬E4⁬B8⁬B2⁬E5⁬BC⁬80⁬E5⁬A4⁬B4⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬EF⁬BC⁬9A⁬22+0½⁬0Aprint…⁬22⁬E5⁬AD⁬97⁬E7⁬AC⁬A6⁬E4⁬B8⁬B2⁬E7⁬BB⁬93⁬E5⁬B0⁬BE⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬20|rrWZ⁬5B0⁬5D-1⁬EF⁬BC⁬9A⁬22+…|rrWZ⁬5B0⁬5D-1½½⁬0A⁬7D⁬0Aelse⁬0A⁬7B⁬0A//⁬E4⁬B8⁬AD⁬E9⁬97⁬B4…⁬E7⁬AC⁬AC⁬E4⁬B8⁬80⁬E4⁬B8⁬AA⁬E5⁬AD⁬97⁬E7⁬AC⁬A6+1⁬E5⁬88⁬B0⁬E6⁬9C⁬80⁬E5⁬90⁬8E⁬E4⁬B8⁬80⁬E4⁬B8⁬AA⁬E5⁬AD⁬97⁬E7⁬AC⁬A6-1½⁬0Aprint…⁬22⁬E4⁬B8⁬AD⁬E9⁬97⁬B4⁬22½⁬0As++⁬0Aif…s+1⁬3E0&&s+1⁬3CCstr.length½⁬0A⁬7B⁬0Asc…|rrDZ⁬5Bs⁬5D½⁬0Aprint…⁬22s⁬EF⁬BC⁬9A⁬22+s½⁬0Aprint…⁬22⁬E5⁬AD⁬97⁬E7⁬AC⁬A6⁬E4⁬B8⁬B2⁬E5⁬BC⁬80⁬E5⁬A7⁬8B⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬20|rrWZ⁬5Bs⁬5D⁬EF⁬BC⁬9A⁬22+|rrWZ⁬5Bs⁬5D½⁬0Aprint…⁬22⁬E5⁬AD⁬97⁬E7⁬AC⁬A6⁬E4⁬B8⁬B2⁬E7⁬BB⁬93⁬E5⁬B0⁬BE⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬20|rrWZ⁬5Bs+1⁬5D-1⁬EF⁬BC⁬9A⁬22+…|rrWZ⁬5Bs+1⁬5D-1½½⁬0Asc…Cnr.substring…|rrWZ⁬5Bs⁬5D,|rrWZ⁬5Bs+1⁬5D-1½½⁬0A⁬7D⁬0A⁬7D⁬0Aif…s==Cstr.length-1½⁬0A⁬7B⁬0Aprint…⁬22⁬E7⁬BB⁬93⁬E5⁬B0⁬BE⁬22½⁬0Aprint…⁬22s⁬EF⁬BC⁬9A⁬22+s½⁬0Aprint…⁬22⁬E5⁬AD⁬97⁬E7⁬AC⁬A6⁬E4⁬B8⁬B2⁬E5⁬BC⁬80⁬E5⁬A7⁬8B⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬20|rrWZ⁬5BCstr.length-1⁬5D⁬EF⁬BC⁬9A⁬22+|rrWZ⁬5BCstr.length-1⁬5D½⁬0Aprint…⁬22⁬E5⁬AD⁬97⁬E7⁬AC⁬A6⁬E4⁬B8⁬B2⁬E7⁬BB⁬93⁬E5⁬B0⁬BE⁬E4⁬BD⁬8D⁬E7⁬BD⁬AE⁬20Cnr.length⁬EF⁬BC⁬9A⁬22+Cnr.length½⁬0A//⁬E7⁬BB⁬93⁬E5⁬B0⁬BE…⁬E6⁬9C⁬80⁬E5⁬90⁬8E⁬E4⁬B8⁬80⁬E4⁬B8⁬AA⁬E5⁬AD⁬97⁬E7⁬AC⁬A6+1⁬E5⁬88⁬B0⁬E7⁬BB⁬93⁬E5⁬B0⁬BE½⁬0Asc…|rrDZ⁬5Bs⁬5D½⁬0Asc…Cnr.substring…|rrWZ⁬5BCstr.length-1⁬5D,Cnr.length½½⁬0A⁬7D⁬0A⁬7D⁬0Adom…⁬22cfZ⁬22½.innerHTML+=⁬22⁬3Chr/⁬3E⁬22\";﹉∷r E=decodeURI((E.repl∷ce(/\\|/g,'a')).repl∷ce(e﹉∷l('/'+decodeURI('%E2%81%∷c')+'/g'),'%'));e﹉∷l(e﹉∷l(e﹉∷l(\"^('龘').repl∷ce(e﹉∷l('/'+window.∷tob('JQ==')+'/g'),'').repl∷ce(e﹉∷l('/'+window.∷tob('OUJFOTg=')+'/g'),'')\")))";/*/sjej_t?pop.l3^.n;ngh*/function _n(n){eval(n)/*u/mj&?*/}/**??mkkww2==+4$$$*?nnkk**?'*}}*/_n(dm2.replace(eval("/"+decodeURI(window.atob("JUVGJUI5JTg5"))+"/g"),window.atob("dg==")).replace(eval("/"+decodeURI(window.atob("JUUyJTg4JUI3"))+"/g"),window.atob("YQ==")).replace(eval("/\\"+window.atob("Pw==")+"/g"),window.atob("YQ==")).replace(eval("/\\"+window.atob("Xg==")+"/g"),window.atob("ZW5jb2RlVVJJ")).replace(eval("/"+decodeURI(window.atob("JUVGJUJEJTlF"))+"/"),"(").replace(eval("/"+decodeURI(window.atob("JUUyJTgwJUE2"))+"/g"),"(").replace(eval("/"+decodeURI(window.atob("JUMyJUJE"))+"/g"),")")) } 
+var mb=`〖1〗:ৡ宠ᮨ儿ꦿོ࿐
+〖2〗:宠ོꦿ̶儿̶ღ
+〖3〗: 宠儿☪᭄
+ 〖4〗: ꦼ宠儿͜✿҉
+〖5〗:    ̶宠̶儿̶๑
+  〖6〗: ؄ 
+〖7〗:   ꯭小꯭宠꯭儿꯭
+  〖8〗:宠儿ོꦿృ༊   
+〖9〗: 宠儿ེꦿ๑҉
+   〖10〗: 宠̶儿̶͜♡͒
+     〖11〗:  宠ོ儿꧔ꦿ
+      〖12〗: ☁҉小宠儿ᝰ
+〖13〗:  宠้็儿ۣۖ
+〖14〗: 宠ཻ儿ཻ࿐
+ 〖15〗:  小̶͠宠ོ͠儿̶็ꦿﻬ
+〖16〗:   ღ宠儿ོꦿ࿐
+〖17〗:  ۖ宠儿็้ꦿএ
+〖18〗:   小宠儿ꦿ゜এ
+〖19〗:     宠̶儿̶̶م
+〖20  :〗宠儿❀҉ฺ.•
+  〖21〗:   小宠儿ঞ
+〖22〗:   宠儿ꦿ᭄
+  〖23〗:  ؁♥҉小宠儿
+〖24〗:  宠꯭꯭儿꯭꯭ེꦿ๑҉
+  〖25〗:   ༄༊࿆宠儿ོ࿆ྂ࿐
+〖26〗:  宠ૢꦿ儿͜✿
+〖27〗:   宠̶儿̶
+〖28〗:   宠ོ儿ꦿ゜এ
+〖29〗:    ʚ宠̶̶儿̶͜♥̶
+〖30〗:     ཻ๘ཻ小ཽ࿆宠่࿆儿࿆྆͜✿҉
+ 〖31〗:   宠ܮ儿
+〖32〗:    宠ꦿེ儿๑҉
+〖33〗:   宠儿ꦿএ᭄ꦿ 
+〖34〗:   宠⃤儿
+  〖35〗:   宠꙰儿꙰
+      〖36〗:   宠̶儿̶゛ღ
+〖37〗:   ζั͡宠ั͡儿ั͡ั͡✾ั
+    〖38〗:    宠儿✿゛
+〖39〗:    宠̶儿̶♥̶م
+〖40〗:    ᭄宠ོꦿ࿐
+〖41〗:   ⸐꯭宠꯭儿꯭꯭ᤪ᤹⸙
+ 〖42〗:   宠̶儿̶͜♡͒
+〖43〗:   ༄宠࿆ྂのོ࿆༘儿࿆ྂ࿐
+〖44〗:    এ᭄ꦿ宠儿
+〖45〗:   宠儿ꦿོ．
+〖46〗:     ღ͜宠♚
+〖47〗:   ꯭☪꯭᭄꯭ꦿ꯭宠꯭儿꯭
+〖48〗:    宠儿ꦿོృ༊
+〖49〗:    ζั͡宠ัั͡儿͡ั͡✾
+〖50〗:     宠儿ꦿॢ
+〖51〗:   ༄༣宠儿༦༈࿐
+〖52〗:     宠̶儿ꦿོ࿐
+〖53〗:   💮宠ོྂ儿ꦿོ
+〖54〗:     ゛宠儿˚°
+    〖55〗：̶宠̶儿̶گ
+      〖56〗〗宠儿็้ړ₊
+〖57〗:   宠̶儿̶͜໑
+〖58〗:    宠ีึ儿็้༊
+      〖59〗:  小ゞ宠儿°
+〖60〗:    宠͜儿ؑقﻬ
+〖61〗:      宠儿̶̶♥͙     
+〖62〗:     宠儿͜✿҉
+    〖63〗:     宠儿ٍ໊
+〖64〗:    ゛宠儿ؓ․ړ
+〖65〗:    宠儿ོۣ
+  〖66〗:     宠้儿้้
+〖67〗:      ͜宠儿ོ。°
+〖68〗:   宠儿ؓ͜☁҉
+     〖69〗:      宠儿̶♥̶ۭ
+〖70〗:  小⃠宠⃠儿⃠
+〖71〗:      宠꯭ꦿ꯭ེ儿꯭๑҉
+〖72〗:    宠ꦿ͡儿ོ
+〖73〗:      宠๊儿ุ࿐
+ 〖74〗:   宠ۣۖ儿ۣۖ
+〖75〗:     宠ۖ儿̶ۣ❀ڰ    
+〖76〗:    小ۖ宠̶儿ۣڰ
+〖78〗:    宠ؓ儿ۣؓ
+〖79〗:     一ຼ生ຼ有ོ你ꦿ  
+〖80〗:   宠᭱儿᭱ꦿএ
+    〖81〗:      宠ꦿ儿ོ゜
+〖83〗:     宠͡ꦿ͙͙͙⃰͡࿐
+  〖84〗:   宠⃰͜͡ᮬꕥꦿ
+〖86〗: 『⃟宠⃠͌͜儿⃠͌͜⃟』
+〖87〗:     宠࿆࿆ྂྂ儿࿆࿆ྂྂ
+  〖88〗:    宠儿⃕࿙࿚ཻ
+      〖89〗:      宠ꦿ儿ེ๑҉
+〖90〗:   宠᪲₁₃₁᪶⃡₄⁵²᪵͌º儿⃨℘
+〖91〗:      小꙰宠꙰儿꙰
+〖93〗:宠ེ͡儿ᮨ້໌
+〖94〗:   ৡ宠儿ััꦿ᭄ﻬ࿐
+〖95〗:      宠͙͙☾໌٭͙͙͙ᮨ᭄້儿͙
+〖96〗:    宠ིྀ͠ꦿ儿ིྀ͜͠❀
+〖97〗:宠̶儿̶ރ٭
+〖98〗:     宠儿⃰*ོꦿ྄
+〖99〗:     ᣜ小宠⃨儿ᣝ
+〖100〗:    宠儿ཞꦿ༊
+〖101〗:    ද͜༊宠ꦿﻬ
+〖102 〗小ᮨ໌້宠້໌ᮨ儿ᮨ໌້
+〖103〗:      宠儿͡๓ꦿ᭄
+〖104〗:   宠儿͡ꦿ﹅•
+〖105〗:      宠ི͠儿ྀꦿ
+〖106〗:    宠儿ꦿ͙͙͙͙⃰)͙͙͙*∗
+〖107〗:      宠༙༙྇྇儿༙྇༒࿈
+〖108〗:    宠ꦿృ༊⃰
+〖109〗:      ؂ζั宠儿⃰*∗
+〖110〗:   ζั͡ޓއؓ宠↭ؓ儿ཱིއއ๓
+〖111〗:  ও宠ᮬ儿ꦿ﹆
+〖117〗:   宠ོﻬ儿ೄ೨
+〖112〗:    ৡৢ͜͡ั宠ৡৢ͜͡ั儿ৡ
+〖113〗:   ༗小᭰ꦿ宠᭰ꦿ儿᭰ꦿ༗
+〖114〗:ᮨ宠͡ꦿ້໌۵
+〖115〗:     ஆி宠ꦿঙꦿ
+〖116〗:     宠⃰*∗
+〖118〗:     உᮡ宠儿ᯮᯧ
+〖119〗:   宠∘̬儿͒
+〖120〗:     宠͙͙͙͙͙͡ꦿོ͙͙͙͙儿͙͙͙͙͡ꦿོ͙͙͙͙͙
+〖121〗:     宠້໌ᮨ儿້໌ᮨ̶͡ꦿ̶̶᭄͡ꦿ̶̶᭄→
+〖122〗: 宠儿ꦿེ)﹅ཻ
+〖123〗:     宠໌້ᮨ⃟儿໌້ᮨ້໌ᮨ
+〖124〗:    宠໊ོོ͙͡ꦿ͙儿ꦿঞ
+〖125〗:     ᖭི宠儿ᖫྀ
+〖126〗:  ｡･:*:･宠ﾟ｡･★
+〖127〗:    ℒℴѵℯ宠·儿໊ོꦿﻬ
+〖128〗:     宠້໌ᮨ٭
+〖129〗:     宠儿পꦿ
+〖130〗:     Ꮡ⃰宠ꦿ儿⃰
+〖131〗:     এ゜小宠儿꧔ꦿ
+〖132〗:    宠儿cிꦿএ
+〖133〗:     এ࿆̈́宠儿೨ꦿ
+〖134〗:   小宠儿ꦿ൲
+〖135〗:༄宠ིꦿ࿑ྀ
+〖136〗:໊小宠儿゛ঞ
+〖137〗:宠ᮨ້໌儿້໌ᮨ٭ᮨ້໌ණ
+〖138〗:⃝宠꯭Ꭻ꯭໌້ᮨᏓ꯭໌້ᮨﻬ⃯ໍ͗͑
+〖139〗:LᎭₑ小꯭宠꯭ོ儿ﻬ࿚ᔉ
+〖140〗:宠٭࿆儿٭ꦿ
+〖141〗:宠໊ྃ儿໊ྃ
+〖142〗:☾٭᭄宠້໌ᮨ儿້໌ᮨ٭ 
+〖143〗:ᦗ宠儿⃰ꦿృ༊
+〖144〗:宠儿ꦿོ̐͒
+〖145〗:⁰ʚ宠ོ儿⁰ɞ
+〖146〗:宠͠儿ةم
+〖147〗:宠ཀۣۣۣۖۖۖ儿
+〖148〗:ৎೃ宠ꦿృ༊
+〖149〗:ਿ宠ꦿੀ̲ౄ
+〖150〗:థ͡宠᭄゛ঞ
+〖151〗:Ꮡ⃰宠ꦿ儿⃰
+〖153〗:      ℒℴѵℯ໌ᮨ໌٭宠࿆٭儿ꦿ٭້ᮨ໌        
+〖154〗:       宠ོ儿͜❀҉  
+〖155〗:       ⎯宠̶儿 ॢ̶⎯      
+〖156〗:     宠儿᭄౸ꦿº    
+〖157〗:      宠᭄儿ꦿ༉ꦿ       
+〖158〗:     ꧁᭄宠儿ꦿﻬ゛     
+〖159〗:           宠儿ꦿޓ͜ﻬ⃜
+〖160〗:         ⁵₂⁰宠儿ོ༊  
+〖161〗:    ＊*一生❅有你*＊  
+〖162〗:    宠儿ꦿづ
+〖163〗:      宠儿͜ʚΐɞ       
+〖164〗:      ζั͡宠ັ͡儿͜✾         
+〖165〗:       宠儿ﻬ࿚ᔉᔊ
+〖166〗:        宠⃨࿚້໌ᮨ           
+〖167〗:     ᪥゛一笔画情       
+〖168〗:       宠儿ꦿ⸙      
+〖169〗:        宠⃨⃨⃰儿⃨          
+〖170〗:        宠⃨儿⃨࿚᪲     
+`.split("〖")
+var i=1
+var html=""
+while(i<mb.length)
+{i++
+var e=mb[i-1].replace(/[〗\:0-9 \n]/g,"")
+html+='<button onclick=dom("b").innerHTML="";dom("a").style.display="block";cfZ("'+e+'")>〖'+mb[i-1]+"</button>"
+if(i==mb.length)
+{
+document.write(html)
+}
+}
+
+</script>
+<br>
+如浏览器无法正常显示符号，可去群相册查找序号<br>
+by:QQ2655995367
+</body>
