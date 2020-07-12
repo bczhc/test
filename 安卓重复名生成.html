@@ -1,0 +1,69 @@
+
+<head> 
+     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>安卓重复名生成</title>
+</head>
+<h1>安卓重复名生成</h1>
+输入名字:<input id=name ><button onclick=s()>生成</button><br>
+生成结果:<input id=result><button onclick=copy()>复制</button>
+<br>
+<br>
+tip:<br>
+如仍然重复，可再次点击按钮生成<br>名字字数越少越不易重复<br>
+by:QQ2655995367
+<script>
+function dom(x){
+return document.getElementById(x)
+}
+function r(minNum,maxNum){ 
+    switch(arguments.length){ 
+        case 1: 
+            return parseInt(Math.random()*minNum+1,10); 
+        break; 
+        case 2: 
+            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+        break; 
+            default: 
+                return 0; 
+            break; 
+    } 
+} 
+
+function s()
+{
+var i=1
+var blank="%E2%81%A"
+var n=dom("name").value.split("")
+if(dom("name").value=="")
+{n=[""]}
+if(n.length>=6)
+{alert("名字字数超限制，可能无法使用，请减小至6字符以下")
+}
+else
+{
+i=6-n.length
+}
+var m=0
+while(m<i)
+{m++
+var rr=r(0,16)
+if(rr==1)
+{rr=0}
+n[r(0,n.length-1)]+=blank+rr.toString(16)
+console.log(n)
+}
+if(m==i)
+{
+dom("result").value=decodeURI(n.join(""))
+}
+}
+function copy()
+{
+var fz=dom("result");
+fz.select();
+document.execCommand("Copy");
+}
+</script>
