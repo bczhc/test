@@ -1,0 +1,55 @@
+<head>
+		<meta charset="UTF-8" />
+<title>运行代码</title>
+<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	</head>
+<h1>QQ作业分割</h1>
+输入:<br><textarea id=a></textarea>
+<br><button onclick=s()>分割</button><hr>
+<div id=result></div>
+<script>
+function e(str,radix){
+ str=String(str)
+let arr=[] //返回的字符实体默认10进制，也可以选择16进制
+ radix=radix||0
+ for(let i=0;i<str.length;i++){ 
+arr.push((!radix?'&#'+str.charCodeAt(i):'&#x'+str.charCodeAt(i).toString(16))+';')
+}
+ let tmp=arr.join('')
+ return tmp
+}
+function s(){
+document.getElementById("result").innerHTML="";
+var nr=document.getElementById("a").value;
+nr=nr.split("\n")
+var max=nr.length
+var i=0
+var text=""
+while(i<max)
+{
+i++
+if([text,nr[i-1],"\n"].join("").length<500)
+{
+text=[text,nr[i-1],"\n"].join("")
+}
+else
+{
+document.getElementById("result").innerHTML+="<textarea>"+e(text)+"</textarea>"+text.length+"字";
+text=""
+}
+if(i==max&&text!="")
+{
+document.getElementById("result").innerHTML+="<textarea>"+e(text)+"</textarea>"+text.length+"字";
+}
+}
+console.log(nr);
+}
+</script>
+<style>
+textarea{
+width:75%;
+height:20%
+}
+</style>
