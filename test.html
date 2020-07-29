@@ -249,13 +249,13 @@ var mb=`〖1〗:ৡ宠ᮨ儿ꦿོ࿐
 〖170〗:        宠⃨儿⃨࿚᪲     
 `.split("〖")
 var i=1
-var t=setTimeout(function (){
+var t=setInterval(function (){
     i++
     var e=mb[i-1].replace(/[〗\:0-9 \n]/g,"")
     document.write(['<button onclick=dom("b").innerHTML="";dom("a").style.display="block";cfZ("',e,'")>〖',mb[i-1],"</button>"].join(""))
 if(i==mb.length)
 {
-    clearTimeout(t);
+    clearInterval(t);
 }
 },0)
 
