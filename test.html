@@ -252,8 +252,9 @@ var i=1
 while(i<mb.length)
 {i++
 var e=mb[i-1].replace(/[〗\:0-9 \n]/g,"")
-document.write(['<button onclick=dom("b").innerHTML="";dom("a").style.display="block";cfZ("',e,'")>〖',mb[i-1],"</button>"].join(""))
-
+function ()
+{document.write(['<button onclick=dom("b").innerHTML="";dom("a").style.display="block";cfZ("',e,'")>〖',mb[i-1],"</button>"].join(""))
+},0)
 }
 
 </script>
