@@ -1,0 +1,3 @@
+<noscript>
+无JS
+</noscript>
