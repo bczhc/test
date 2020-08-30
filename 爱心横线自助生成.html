@@ -1,0 +1,87 @@
+<head>
+    <title>爱心横线自助生成</title>
+    <meta charset="UTF-8" >
+        <meta name="viewport"    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head><div align=center><h2>爱心横线自助生成</h2>
+输入你的名字:<input id=name><button onclick=c()>提交</button>
+<br>
+<hr>
+<div id=s>
+<!--自助生成区-->
+</div>
+<hr>
+<div id=t>
+by:QQ:2655995367
+<br>
+本生成器不支持emoji
+<br>
+使用方法:<br>
+输入名字，点击提交，可将名字拆分为单字，单字后面有按钮，可根据需要点击添加符号，每个按钮点击一次即可，否则会重复，符号添加完后，可点击合并所有文本，将上面生成的单个字合并，然后再生成出的输入框中复制使用。如浏览器无法正常显示符号，可将生成结果复制到QQ等其他输入框查看。
+<br></div>
+</div>
+<script>
+alert("使用须知\n\n制作：QQ:2655995367\n本生成器不支持emoj\n使用方法:\n输入名字，点击提交，可将名字拆分为单字，单字后面有按钮，可根据需要点击添加符号，每个按钮点击一次即可，否则会重复，符号添加完后，可点击合并所有文本，将上面生成的单个字合并，然后再生成出的输入框中复制使用。如浏览器无法正常显示符号，可将生成结果复制到QQ等其他输入框查看。")
+function dom(id)
+{
+var dom=document.getElementById(id)
+return dom
+}
+function add1(ID)
+{
+//删除线
+dom(ID).value+=decodeURI("%cc%b6")
+}
+function add2(ID)
+{
+//爱心
+dom(ID).value+=decodeURI("%E1%AE%A8%E0%BB%89%E0%BB%8C")
+}
+function add3(ID)
+{
+//删除线爱心
+dom(ID).value+=decodeURI("%cc%b6%E1%AE%A8%E0%BB%89%E0%BB%8C")
+}
+var i//变量
+function c()
+{
+dom("s").innerHTML=""
+i=0
+o=0
+end=""
+//var arr=[]//储存数组
+var n=dom("name").value
+var x=n.length//循环次数
+while(i<x)
+{
+i++
+var id=i
+var z=n.substring(i-1,i)
+//arr[i-1]=z
+dom("s").innerHTML+="<input id=id"+id+" value=\""+z+"\">"+"<button onclick=add1(\"id"+i+"\")>"+decodeURI("删除线(1%cc%b6)")+"</button>"+"<button onclick=add2(\"id"+i+"\")>"+decodeURI("爱心(1%E1%AE%A8%E0%BB%89%E0%BB%8C)")+"</button>"+"<button onclick=add3(\"id"+i+"\")>"+decodeURI("删除线+爱心(1%cc%b6%E1%AE%A8%E0%BB%89%E0%BB%8C)")+"</button><br>"
+if(i==x)
+{
+dom("s").innerHTML+="<button onclick=over("+i+")>合并所有文本</button>"
+}
+}
+}
+var o=0
+var end=""
+function over(I)
+{
+while(o<I)
+{
+o++
+end+=dom("id"+o).value
+//alert(end)
+if(o==I)
+{
+dom("s").innerHTML+="<br><input id=e>"
+dom("e").value=end
+}
+}
+}
+</script>
+<style>
+#t{font-size:10px;}
+</style>
