@@ -10,6 +10,7 @@
 <div id=s>
 <!--自助生成区-->
 </div>
+</div>
 <hr>
 <div id=t>
 by:QQ:2655995367
@@ -17,11 +18,10 @@ by:QQ:2655995367
 本生成器不支持emoji
 <br>
 使用方法:<br>
-输入名字，点击提交，可将名字拆分为单字，单字后面有按钮，可根据需要点击添加符号，每个按钮点击一次即可，否则会重复，符号添加完后，可点击合并所有文本，将上面生成的单个字合并，然后在生成出的输入框中复制使用。如浏览器无法正常显示符号，可将生成结果复制到QQ等其他输入框查看。
+输入名字后，点击提交，可将名字拆分为单字，单字后面有按钮，可根据需要点击添加符号，每个按钮点击一次即可，否则会重复，符号添加完后，可点击合并所有文本，将上面生成的单个字合并，然后在生成出的输入框中复制使用。如浏览器无法正常显示符号，可将生成结果复制到QQ等其他输入框查看。
 <br></div>
-</div>
 <script>
-alert("使用须知\n\n制作：QQ:2655995367\n本生成器不支持emoj\n使用方法:\n输入名字，点击提交，可将名字拆分为单字，单字后面有按钮，可根据需要点击添加符号，每个按钮点击一次即可，否则会重复，符号添加完后，可点击合并所有文本，将上面生成的单个字合并，然后在生成出的输入框中复制使用。如浏览器无法正常显示符号，可将生成结果复制到QQ等其他输入框查看。")
+alert("使用须知\n\n制作：QQ:2655995367\n本生成器不支持emoj\n使用方法:\n输入名字后，点击提交，可将名字拆分为单字，单字后面有按钮，可根据需要点击添加符号，每个按钮点击一次即可，否则会重复，符号添加完后，可点击合并所有文本，将上面生成的单个字合并，然后在生成出的输入框中复制使用。如浏览器无法正常显示符号，可将生成结果复制到QQ等其他输入框查看。")
 function dom(id)
 {
 var dom=document.getElementById(id)
@@ -58,7 +58,7 @@ i++
 var id=i
 var z=n.substring(i-1,i)
 //arr[i-1]=z
-dom("s").innerHTML+="<input id=id"+id+" value=\""+z+"\">"+"<button onclick=add1(\"id"+i+"\")>"+decodeURI("删除线(1%cc%b6)")+"</button>"+"<button onclick=add2(\"id"+i+"\")>"+decodeURI("爱心(1%E1%AE%A8%E0%BB%89%E0%BB%8C)")+"</button>"+"<button onclick=add3(\"id"+i+"\")>"+decodeURI("删除线+爱心(1%cc%b6%E1%AE%A8%E0%BB%89%E0%BB%8C)")+"</button><br>"
+dom("s").innerHTML+="<input id=id"+id+" value=\""+z+"\">"+"<br><button onclick=add1(\"id"+i+"\")>"+decodeURI("删除线(1%cc%b6)")+"</button>"+"<button onclick=add2(\"id"+i+"\")>"+decodeURI("爱心(1%E1%AE%A8%E0%BB%89%E0%BB%8C)")+"</button>"+"<button onclick=add3(\"id"+i+"\")>"+decodeURI("删除线+爱心(1%cc%b6%E1%AE%A8%E0%BB%89%E0%BB%8C)")+"</button><br><br>"
 if(i==x)
 {
 dom("s").innerHTML+="<button onclick=over("+i+")>合并所有文本</button>"
