@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一键搜索</title>
+</head>
+<body>
+
+<div align=center>
+    <form action="javascript:">
+        <label for=search></label><input id=search>
+        <input type="submit" value="点此搜索" onclick="s()">
+    </form>
+</div>
+<iframe src="http://m.baidu.com/s?word=百度" id=s1 style=width:45%;height:300px;></iframe>
+<!--sandbox="allow-scripts allow-same-origin allow-popups"-->
+<iframe src="https://www.so.com/s?q=好搜" id=s2 style=width:45%;height:300px;></iframe>
+<br>
+<iframe src="https://m.sm.cn/s?q=神马" id=s3 style=width:45%;height:300px;></iframe>
+<iframe src="https://cn.bing.com/search?q=bing" id=s4 style=width:45%;height:300px;></iframe>
+<div align=center>
+    <iframe src="https://www.sogou.com/web?query=搜狗" id=s5 style=width:45%;height:300px;></iframe>
+</div>
+<script>
+    function s() {
+        var body = encodeURI(document.getElementById("search").value);
+        document.getElementById("s1").src = "http://m.baidu.com/s?word=" + body;
+        document.getElementById("s2").src = "https://www.so.com/s?q=" + body;
+        document.getElementById("s3").src = "https://m.sm.cn/s?q=" + body;
+        document.getElementById("s4").src = "https://cn.bing.com/search?q=" + body;
+        document.getElementById("s5").src = "https://www.sogou.com/web?query=" + body;
+    }
+</script>
+</body>
+</html>
