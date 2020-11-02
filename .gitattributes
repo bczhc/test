@@ -1,2 +1,1 @@
-buildSrc/*" linguist-detectable
-*.kt linguist-detectable
+* -linguist-generated
