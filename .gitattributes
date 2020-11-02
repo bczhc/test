@@ -1,2 +1,2 @@
-*.groovy linguist-detectable
+buildSrc/*" linguist-detectable
 *.kt linguist-detectable
