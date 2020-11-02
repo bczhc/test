@@ -1,1 +1,4 @@
 *.kt linguist-language=Kotlin
+*.kt -linguist-vendored
+*.kt -linguist-generated
+*.kt linguist-detectable
