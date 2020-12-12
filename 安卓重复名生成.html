@@ -5,15 +5,36 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>安卓重复名生成</title>
+      <style>
+          h1{filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);
+           box-shadow: 2px 2px 2px #909090}
+           .button
+            {
+        border-radius:11px;
+        border:1.5px solid #636363;
+        display:inline-block;
+        padding:1px 5px 1px 5px;
+        font-size:17px;
+            }
+            input{
+        border-radius:11px;
+        border:1.5px solid #636363;
+        display:inline-block;
+        height:22px;
+        font-size:17px;
+            }
+           </style>
 </head>
 <h1>安卓重复名生成</h1>
-输入名字:<input id=name ><button onclick=s()>生成</button><br>
-生成结果:<input id=result><button onclick=copy()>复制</button>
+输入名字:<input id=name >&nbsp;&nbsp;<div onclick=s() class=button>生成</div><br>
+生成结果:<input id=result>&nbsp;&nbsp;<div onclick=copy() class=button>复制</div>
 <br>
 <br>
+<div align=center style=background:#F9F9F9>
 tip:<br>
 如仍然重复，可再次点击按钮生成<br>名字字数越少越不易重复<br>不输入直接生成即为空白名<br>
 by:QQ2655995367（有bug可留言）
+</div>
 <script>
 function dom(x){
 return document.getElementById(x)
