@@ -25,6 +25,17 @@ margin:0px 0px 30px -7px;}
         font-size:17px;
         width:170px;
             }
+            .toast{
+                display:none;
+                position:fixed;
+                top:70%;
+                left:50%;
+                transform:translate(-50%, -50%);
+                background:#A7A7A7;
+                padding:17px 17px 17px 17px;
+                border-radius:20px;
+                color:white;
+                }
            </style>
 </head>
 <h1>安卓重复名生成</h1>
@@ -56,7 +67,15 @@ function r(minNum,maxNum){
             break; 
     } 
 } 
-
+var timeout;
+function toast(str)
+{
+    clearTimeout(timeout)
+    dom("toast").style.display="block"
+    dom("toast").innerHTML=str
+    timeout=setTimeout('dom("toast").style.display="none"',1500)
+}
+}
 function s()
 {
 var i=1
@@ -83,6 +102,7 @@ console.log(n)
 if(m==i)
 {
 dom("result").value=decodeURI(n.join(""))
+toast("已生成重复名，点击复制可使用")
 }
 }
 function copy()
@@ -90,5 +110,7 @@ function copy()
 var fz=dom("result");
 fz.select();
 document.execCommand("Copy");
+    toast("复制成功！")
+
 }
 </script>
