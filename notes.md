@@ -5,5 +5,5 @@
 
 JNI开发：注意线程之间的资源通信，JNIEnv不能共享，需要使用JavaVM。
 还有一些对象也不能共享，需要使用NewGlobalRef。详见官网说明
-<https://developer.android.google.cn/training/articles/perf-jni?hl=zh_cn>
+<https://developer.android.google.cn/training/articles/perf-jni>
 
