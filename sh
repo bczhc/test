@@ -1,4 +1,5 @@
 #!/bin/bash
+git lfs pull
 
 pwd
 sudo apt install ffmpeg -y
