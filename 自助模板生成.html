@@ -1,0 +1,124 @@
+
+
+<head> 
+     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>自助模板生成</title>
+      <style>
+        /*  *{background:#FF3D58;color:#FFDDAC}*/
+          h1{
+           box-shadow: 2px 2px 2px #909090;width:104%;
+margin:0px 0px 30px -7px;}
+           .button
+            {
+        border-radius:11px;
+        border:1.5px solid #636363;
+        display:inline-block;
+        padding:1px 5px 1px 5px;
+        font-size:17px;
+            }
+            input{
+        border-radius:11px;
+        border:1.5px solid #636363;
+        display:inline-block;
+        height:24px;
+        font-size:17px;
+        width:170px;
+            }
+            .toast{
+                display:none;
+                position:fixed;
+                top:70%;
+                left:50%;
+                transform:translate(-50%, -50%);
+                background:#A7A7A7;
+                padding:17px 17px 17px 17px;
+                border-radius:20px;
+                color:white;
+                }
+           </style>
+</head>
+<h1>自助模板生成</h1>
+<!--h2 style=color:#FFDDAC>春节快乐！</h2-->
+<div >
+输入待生成模板:<input id=inputstr ><br>
+输入欲替换文本:<input id=matchstr >&nbsp;&nbsp;（不输入则取模板中文）<br>
+输入替换成文本:<input id=replacestr ><br>
+生成结果:　　　<input id=result><br>&nbsp;&nbsp;<div onclick=replace() class=button>生成</div>&nbsp;&nbsp;<div onclick=copy() class=button>复制</div>&nbsp;&nbsp;<div  onclick=Clear() class=button>清空</div>
+</div>
+<br>
+<br>
+<div align=center style=background:/*#FF3D58;*/f9f9f9;width:100%;position:fixed;right:0px;bottom:0px;>
+<strong>注:</strong>&nbsp;
+替换成文本字数需小于等于欲替换文本<br>
+by:QQ2655995367（有bug可留言）
+</div>
+<div class=toast id=toast></div>
+<script>
+function dom(x){
+return document.getElementById(x)
+}
+function replace(){
+var inputstr=dom("inputstr").value
+var matchstr=dom("matchstr").value
+var replacestr=dom("replacestr").value
+//inputstr:模板
+//matchstr:待替换文本
+//replacestr:替换文本
+var i=-1//数组1
+var i2=0//数组2
+var matchstrarr=matchstr.split("")
+var replacestrarr=replacestr.split("")
+var inputstrarr=inputstr.split("")
+if(matchstr=="")
+{
+matchstrarr=inputstr.match(/[\u4E00-\u9FA5A]/g)
+}
+try{
+for(var item of inputstr)
+{
+i++
+//console.log("模板："+item)
+//console.log("比较："+matchstrarr[i2])
+if(item==matchstrarr[i2])
+{
+inputstrarr[i]=replacestrarr[i2]
+//if(i2<matchstrarr.length-1&&i2<replacestrarr.length-1){
+i2++
+//}
+/*else if(i2>=replacestrarr.length-1){
+inputstrarr[i]=""}*/
+}
+}
+}catch(e){}
+console.log(inputstrarr.join(""))
+dom("result").value=inputstrarr.join("")
+}
+var timeout;
+function toast(str)
+{
+    clearTimeout(timeout)
+    dom("toast").style.display="block"
+    dom("toast").innerHTML=str
+    timeout=setTimeout('dom("toast").style.display="none"',1500)
+}
+
+function copy()
+{
+var fz=dom("result");
+fz.select();
+document.execCommand("Copy");
+    toast("复制成功！")
+
+}
+function Clear()
+{
+dom("inputstr").value=""
+dom("matchstr").value=""
+dom("replacestr").value=""
+dom("result").value=""
+toast("已清空")
+}
+</script>
