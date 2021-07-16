@@ -73,6 +73,7 @@ var inputstrarr=inputstr.split("")
 if(matchstr=="")
 {
 matchstrarr=inputstr.match(/[\u4E00-\u9FA5A]/g)
+dom("matchstr").value=matchstrarr.join("")
 }
 if(replacestrarr.length>matchstrarr.length)
 {
