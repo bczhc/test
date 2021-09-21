@@ -1,0 +1,22 @@
+<audio id=a src="http://aqqmusic.tc.qq.com/amobile.music.tc.qq.com/C400003hXnlP20XZub.m4a?guid=9820437408&vkey=8703F99D1DDC41814731ACC08A38470162162ED25C6385ABE37B038B3210DE8D83F7648F414B91DE0AB9DDDFCB31FE62F139BA96E58A41C5&uin=&fromtag=38"></aduio>
+<script>
+function sleep(delay) {
+	//delay表示的毫秒数
+  var start = (new Date()).getTime();
+  while ((new Date()).getTime() - start < delay) {
+    continue;
+  }
+}
+
+var a=document.getElementById("a")
+var i=0
+setInterval(function(){
+i++
+if(i%2==0)
+{a.pause()
+sleep(1500)
+}else{a.play()
+sleep(2000)
+}
+},0)
+</script>
