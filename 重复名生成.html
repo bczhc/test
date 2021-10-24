@@ -1,10 +1,11 @@
 
+
 <head> 
      <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>安卓重复名生成</title>
+      <title>重复名生成</title>
       <style>
         /*  *{background:#FF3D58;color:#FFDDAC}*/
           h1{
@@ -18,7 +19,7 @@ margin:0px 0px 30px -7px;}
         padding:1px 5px 1px 5px;
         font-size:17px;
             }
-            input{
+            input[type=text]{
         border-radius:11px;
         border:1.5px solid #636363;
         display:inline-block;
@@ -39,11 +40,14 @@ margin:0px 0px 30px -7px;}
                 }
            </style>
 </head>
-<h1>安卓重复名生成</h1>
+<h1>重复名生成</h1>
 <!--h2 style=color:#FFDDAC>春节快乐！</h2-->
 <div align=center>
-输入名字:<input id=name >&nbsp;&nbsp;<div onclick=s() class=button>生成</div><br>
-生成结果:<input id=result>&nbsp;&nbsp;<div onclick=copy() class=button>复制</div>
+输入名字:<input id=name type=text>&nbsp;&nbsp;<div onclick=s() class=button>生成</div><br>
+生成结果:<input id=result type=text>&nbsp;&nbsp;<div onclick=copy() class=button>复制</div>
+<br>
+<label><input type=radio name=system id=android checked=checked>安卓</label>
+<label><input type=radio name=system id=iOS>苹果</label>
 </div>
 <br>
 <br>
@@ -81,6 +85,7 @@ function toast(str)
 
 function s()
 {
+if(dom("android").checked){
 var i=1
 var blank="%E2%81%A"
 var n=dom("name").value.split("")
@@ -106,6 +111,32 @@ if(m==i)
 {
 dom("result").value=decodeURI(n.join(""))
 toast("已生成重复名，点击复制可使用")
+}
+}else{
+var i=1
+var blank=["%E2%81%A0","%7F","%E2%81%A3","%E2%81%A2"]
+var n=dom("name").value.split("")
+if(dom("name").value=="")
+{n=[""]}
+if(n.length>=6)
+{alert("名字字数超限制，可能无法使用，请减小至6字符以下")
+}
+else
+{
+i=6-n.length
+}
+var m=0
+while(m<i)
+{m++
+var rr=r(0,3)
+n[r(0,n.length-1)]+=blank[rr]
+console.log(n)
+}
+if(m==i)
+{
+dom("result").value=decodeURI(n.join(""))
+toast("已生成重复名，点击复制可使用")
+}
 }
 }
 function copy()
