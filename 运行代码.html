@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 <title>运行代码</title>
 	</head>
-<body onload=localStorage.clear()>
+<body onload=localStorage.clear();localStorage.setItem("alertmaybesomeoneelsewillnotuseit", JSON.stringify([]));>
 <div style=float:left>HTML</div><br><textarea oninput=run1() id=html></textarea><br>
 <div style=float:left >JavaScript</div><br>
 <textarea oninput=run1() id=js></textarea><br>
@@ -29,7 +29,6 @@ return dom
 window.onbeforeunload = function(event) {
  event.returnValue = "退出代码将不会保存，是否继续";
 };
-localStorage.setItem("alertmaybesomeoneelsewillnotuseit", JSON.stringify([]))
 function run()
 {
 localStorage.setItem("alertmaybesomeoneelsewillnotuseit", JSON.stringify([]))
