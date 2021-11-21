@@ -29,6 +29,7 @@ return dom
 window.onbeforeunload = function(event) {
  event.returnValue = "退出代码将不会保存，是否继续";
 };
+localStorage.setItem("alertmaybesomeoneelsewillnotuseit", JSON.stringify([]))
 function run()
 {
 localStorage.setItem("alertmaybesomeoneelsewillnotuseit", JSON.stringify([]))
