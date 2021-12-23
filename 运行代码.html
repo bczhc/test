@@ -12,7 +12,7 @@
 <div style=float:left>CSS</div><br>
 <textarea oninput=run1() id=css></textarea>
 <br>
-<button onclick=run() id=run>运行代码</button>&nbsp;&nbsp;自动执行<input type=checkbox checked=checked onclick=i()>
+<button onclick=run() id=run>运行代码</button>&nbsp;&nbsp;自动执行<input type=checkbox checked=checked onclick=i()><div id=time></div>
 &nbsp;&nbsp;<button onclick=dom("result").srcdoc="";dom("log0").srcdoc="";>紧急停止运行</button>
 <br>
 <div style=float:left>运行结果:</div><br><br>
@@ -51,12 +51,17 @@ function i()
 t++
 if(t%2!=0)
 {
+    dom('time').innerHTML=''
 run1=function(){}
 }
 else
-{run1=function()
+{dom('time').innerHTML='<input id=time_input value=200>'
+    run1=function()
 {
+try{clearTimeout(t);}catch(e){console.log(e)}
+t=setTimeout(function(){
 run()
+},dom('time_input').value);
 }
 }
 }
