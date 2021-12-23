@@ -12,7 +12,7 @@
 <div style=float:left>CSS</div><br>
 <textarea oninput=run1() id=css></textarea>
 <br>
-<button onclick=run() id=run>运行代码</button>&nbsp;&nbsp;自动执行<input type=checkbox checked=checked onclick=i() id=cb><div id=time style=display:inline-block>防抖:<input id=time_input value=200>ms</div>
+<button onclick=run() id=run>运行代码</button>&nbsp;&nbsp;自动执行<input type=checkbox checked=checked onclick=i() id=cb><div id=time style=display:inline-block>&nbsp;&nbsp;防抖:<input id=time_input value=200 type=number>ms</div>
 &nbsp;&nbsp;<button onclick=dom("result").srcdoc="";dom("log0").srcdoc="";>紧急停止运行</button>
 <br>
 <div style=float:left>运行结果:</div><br><br>
@@ -48,13 +48,13 @@ run()
 
 function i()
 {
-if(dom('cb').checked==true)
+if(dom('cb').checked==false)
 {
     dom('time').innerHTML=''
 run1=function(){}
 }
 else
-{dom('time').innerHTML='防抖:<input id=time_input value=200>ms'
+{dom('time').innerHTML='&nbsp;&nbsp;防抖:<input id=time_input value=200 type=number>ms'
     run1=function()
 {
 try{clearTimeout(t);}catch(e){console.log(e)}
@@ -88,6 +88,7 @@ border:solid 2px black;
 font-size:20px;
 }
 input{
+width:100px;
 border:solid 1px black;
 border-left-style: none;
 border-right-style: none;
