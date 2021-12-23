@@ -43,19 +43,22 @@ console.log(localStorage.lmaybesomeoneelsewillnotuseit)
 }
 var run1=function()
 {
+try{clearTimeout(t);}catch(e){console.log(e)}
+t=setTimeout(function(){
 run()
+},dom('time_input').value);
 }
 
 function i()
 {
 if(dom('cb').checked==false)
 {
-    dom('time').innerHTML=''
+dom('time').innerHTML=''
 run1=function(){}
 }
 else
 {dom('time').innerHTML='&nbsp;&nbsp;防抖:<input id=time_input value=200 type=number>ms'
-    run1=function()
+run1=function()
 {
 try{clearTimeout(t);}catch(e){console.log(e)}
 t=setTimeout(function(){
