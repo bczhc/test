@@ -1,0 +1,8 @@
+var data = { foo: 'bar' }var event = new CustomEvent('myCustomEvent', { detail: data })window.parent.document.dispatchEvent(event)
+父：
+
+window.document.addEventListener('myCustomEvent', handleEvent, false)function handleEvent(e) {
+  console.log(e.detail) // outputs: {foo: 'bar'}}
+PS：当然，您可以以相反的方向发送相反方向的事件。
+
+document.querySelector('#iframe_id').contentDocument.dispatchEvent(event)
