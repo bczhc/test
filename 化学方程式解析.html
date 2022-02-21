@@ -1,139 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 化学式:<textarea oninput=x() id=a></textarea><br>
 选择颜色:<input type=color id=cc onchange=d("c").style.background=this.value;d("c").innerHTML=this.value;d("b").style.color=this.value;>&nbsp;&nbsp;<div id=c contenteditable="true" style=background:black;width:70px;display:inline-block;color:white oninput=d("cc").value=this.innerText.replace(/[^\S]/g,"");this.style.background=d("cc").value;d("b").style.color=d("cc").value;>&nbsp;</div><br>
 解析结果:<div id=b contenteditable="true"></div>
 <script>
-/*测试化学表达式(方程式)解析
-Fe2(SO4)3
-Na2CO3
-"(55=)".match(/\(+.*=?.*\)+/g)
-2KClO3 (△=KMnO4) 2KCl+3O2气
-（括号后面手动加空格）
-*/
-function zy(char) {
-    let arr = ["\*", "\.", "\+", "\$", "\^", "\[", "\]", "\{", "\}", "\|", "\\", "\/", "\-", "\+", "\=", "\)", "\(","\_", "\?", "\~", "\`"];
-    var str="";
-    var as=[]
-    for(item in char.split("")){
+    /*测试化学表达式(方程式)解析
+    Fe2(SO4)3
+    Na2CO3
+    "(55=)".match(/\(+.*=?.*\)+/g)
+    2KClO3 (△=KMnO4) 2KCl+3O2气
+    （括号后面手动加空格）
+    */
+    function zy(char) {
+        let arr = ["\*", "\.", "\+", "\$", "\^", "\[", "\]", "\{", "\}", "\|", "\\", "\/", "\-", "\+", "\=", "\)", "\(","\_", "\?", "\~", "\`"];
+        var str="";
+        var as=[]
+        for(item in char.split("")){
 
-as.push(char.split("")[item])
+            as.push(char.split("")[item])
 //console.log(as)
-}
-   var ii=0
-   while(ii<as.length)
-{
-ii++
-    for (let i = 0; i < arr.length+1; i++) {
-      //console.log(arr[i])
-		if (as[ii-1] === arr[i]) {
-			
-			str=[str,"\\",as[ii-1]].join("")
-//console.log(str)
-			break;
- 
         }
-     else if(i==arr.length)
-       {
-            str=[str,as[ii-1]].join("")
+        var ii=0
+        while(ii<as.length)
+        {
+            ii++
+            for (let i = 0; i < arr.length+1; i++) {
+                //console.log(arr[i])
+                if (as[ii-1] === arr[i]) {
+
+                    str=[str,"\\",as[ii-1]].join("")
+//console.log(str)
+                    break;
+
+                }
+                else if(i==arr.length)
+                {
+                    str=[str,as[ii-1]].join("")
 //console.log(str+".")
-break;
-       }
+                    break;
+                }
+            }
+            if(ii==as.length)
+            {
+                return RegExp(str);
+            }
+        }
     }
-       if(ii==as.length)
-     {
-   return RegExp(str);
-     }
- }
-}
-function d(x)
-{
-return document.getElementById(x)
-}
-function x()
-{
-d("b").innerHTML=d("a").value.replace(/\n/g,"<br/>")
-var n=d("b").innerHTML
-var bk=n.match(/\(([^(\()])*(\=)+[^(\))]*\)/g)
-if(bk!=null){
-var ki=0
-while(ki<bk.length)
-{
-ki++
-d("b").innerHTML=n.replace(bk[ki-1],["&nbsp;",bk[ki-1],"&nbsp;"].join(""))
-}
-}
-var 
-a=d("a").value.match(/(([A-Za-z]+)|(\))|(\]))([0-9]+)/g)
-console.log(a)
-if(a!=null){
-var i=0
-while(i<a.length)
-{
-i++
-var q=a[i-1]
-console.log(["q:",q].join(""))
-var s=q.replace(/[A-Za-z\)\]]/g,"")
-console.log(s)
-var n=q.match(/[A-Za-z\)\]]+/g)
-console.log(["n:",n].join(""))
-console.log(d("b").innerHTML)
-d("b").innerHTML=d("b").innerHTML.replace(zy(q),[n,"<sub>",s,"</sub>"].join(""))
-}
-}
+    function d(x)
+    {
+        return document.getElementById(x)
+    }
+    function x()
+    {
+        d("b").innerHTML=d("a").value.replace(/\n/g,"<br/>")
+        var n=d("b").innerHTML
+        var bk=n.match(/\(([^(\()])*(\=)+[^(\))]*\)/g)
+        if(bk!=null){
+            var ki=0
+            while(ki<bk.length)
+            {
+                ki++
+                d("b").innerHTML=n.replace(bk[ki-1],["&nbsp;",bk[ki-1],"&nbsp;"].join(""))
+            }
+        }
+        var
+            a=d("a").value.match(/(([A-Za-z]+)|(\))|(\]))([0-9]+)/g)
+        console.log(a)
+        if(a!=null){
+            var i=0
+            while(i<a.length)
+            {
+                i++
+                var q=a[i-1]
+                console.log(["q:",q].join(""))
+                var s=q.replace(/[A-Za-z\)\]]/g,"")
+                console.log(s)
+                var n=q.match(/[A-Za-z\)\]]+/g)
+                console.log(["n:",n].join(""))
+                console.log(d("b").innerHTML)
+                d("b").innerHTML=d("b").innerHTML.replace(zy(q),[n,"<sub>",s,"</sub>"].join(""))
+            }
+        }
 //下标解析结束
-var st=d("b").innerHTML
-var ax=st.match(/\^([0-9]*[\+\-]?)/g)
-if(ax!=null){
-var ii=0
-while(ii<ax.length)
-{
-ii++
-d("b").innerHTML=d("b").innerHTML.replace(zy(ax[ii-1]),["<sup><sup>",ax[ii-1].replace(/\^/,""),"</sup></sup>"].join(""))
-}
-}
+        var st=d("b").innerHTML
+        var ax=st.match(/\^([0-9]*[\+\-]?)/g)
+        if(ax!=null){
+            var ii=0
+            while(ii<ax.length)
+            {
+                ii++
+                d("b").innerHTML=d("b").innerHTML.replace(zy(ax[ii-1]),["<sup><sup>",ax[ii-1].replace(/\^/,""),"</sup></sup>"].join(""))
+            }
+        }
 //上标解析结束
-var hhy=d("b").innerHTML
-var hhm=hhy.match(/(([A-Z][a-z]*)|(\([^\(\)]+\)))\[(([\+|\-][0-9]*)|0)\]/g)
-if(hhm!=null)
-{
-var hhi=0
-while(hhi<hhm.length)
-{
-hhi++
-var hhj=["<ruby>",hhm[hhi-1].match(/(([A-Z][a-z]*)|(\([^\(\)]+\)))/)[0],"<rt>",hhm[hhi-1].match(/([\+|\-][0-9]*)|0/)[0],"</rt></ruby>"].join("")
-d("b").innerHTML=d("b").innerHTML.replace(hhm[hhi-1],hhj)
-}
-}
+        var hhy=d("b").innerHTML
+        var hhm=hhy.match(/(([A-Z][a-z]*)|(\([^\(\)]+\)))\[(([\+|\-][0-9]*)|0)\]/g)
+        if(hhm!=null)
+        {
+            var hhi=0
+            while(hhi<hhm.length)
+            {
+                hhi++
+                var hhj=["<ruby>",hhm[hhi-1].match(/(([A-Z][a-z]*)|(\([^\(\)]+\)))/)[0],"<rt>",hhm[hhi-1].match(/([\+|\-][0-9]*)|0/)[0],"</rt></ruby>"].join("")
+                d("b").innerHTML=d("b").innerHTML.replace(hhm[hhi-1],hhj)
+            }
+        }
 //化合价解析结束
-var e=d("b").innerHTML.match(/\(([^(\()])*(\=)+[^(\))]*\)/g)
-if(e!=null)
-{
-var fi=0
-while(fi<e.length)
-{
-fi++
-var s=e[fi-1].match(/\(+.*=/)
-console.log(s)
-s=s[0].replace(/[\(\=]/g,'')
-var x=e[fi-1].match(/\=+.*\)/)
-console.log(x)
-x=x[0].replace(/[\=\)]/g,'')
-if(s=="")
-{
-s="&nbsp;&nbsp;&nbsp;"
-}
-if(x=="")
-{
-x="&nbsp;&nbsp;&nbsp;"
-}
-d("b").innerHTML=d("b").innerHTML.replace(zy(e[fi-1]),['<span><table cellspacing="-1" cellpadding="-1" style="width:auto;display:inline-table;*display:inline;vertical-align:middle;margin:0;padding:0;text-align:center;line-height:normal;" style="display:inline-table;vertical-align:middle"><tr><td style="border-bottom:1px solid "><small>',s,'</small></td></tr><tr><td style="border-top:1px solid "><small>',x,'</small></td></tr></table></span>'].join(""))
-}
-}
+        var e=d("b").innerHTML.match(/\(([^(\()])*(\=)+[^(\))]*\)/g)
+        if(e!=null)
+        {
+            var fi=0
+            while(fi<e.length)
+            {
+                fi++
+                var s=e[fi-1].match(/\(+.*=/)
+                console.log(s)
+                s=s[0].replace(/[\(\=]/g,'')
+                var x=e[fi-1].match(/\=+.*\)/)
+                console.log(x)
+                x=x[0].replace(/[\=\)]/g,'')
+                if(s=="")
+                {
+                    s="&nbsp;&nbsp;&nbsp;"
+                }
+                if(x=="")
+                {
+                    x="&nbsp;&nbsp;&nbsp;"
+                }
+                d("b").innerHTML=d("b").innerHTML.replace(zy(e[fi-1]),['<span><table cellspacing="-1" cellpadding="-1" style="width:auto;display:inline-table;*display:inline;vertical-align:middle;margin:0;padding:0;text-align:center;line-height:normal;" style="display:inline-table;vertical-align:middle"><tr><td style="border-bottom:1px solid "><small>',s,'</small></td></tr><tr><td style="border-top:1px solid "><small>',x,'</small></td></tr></table></span>'].join(""))
+            }
+        }
 //方程式反应条件解析结束
-var ot=d("b").innerHTML
-ot=ot.replace(/气/g,"↑")
-ot=ot.replace(/沉淀|沉/g,"↓")
-ot=ot.replace(/\./g,"·")
-d("b").innerHTML=ot
+        var ot=d("b").innerHTML
+        ot=ot.replace(/气/g,"↑")
+        ot=ot.replace(/沉淀|沉/g,"↓")
+        ot=ot.replace(/\./g,"·")
+        d("b").innerHTML=ot
 //其他处理结束
-}
+    }
 </script>
+</body>
+</html>
