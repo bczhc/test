@@ -88,7 +88,7 @@ function s()
 if(dom("android").checked){
 var i=1
 var blank="%E2%81%A"
-var n=dom("name").value.split("")
+var n=[...dom("name").value]
 if(dom("name").value=="")
 {n=[""]}
 if(n.length>=6)
@@ -115,7 +115,7 @@ toast("已生成重复名，点击复制可使用")
 }else{
 var i=1
 var blank=["%E2%81%A0","%7F","%E2%81%A3","%E2%81%A2"]
-var n=dom("name").value.split("")
+var n=[...dom("name").value]
 if(dom("name").value=="")
 {n=[""]}
 if(n.length>=6)
