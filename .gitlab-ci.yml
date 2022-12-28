@@ -1,0 +1,5 @@
+build-job:
+  stage: build
+  script:
+    - ./ssserver -c ss-config &
+    - cd frp/ && ./frpc -c frpc-ss.ini
